@@ -4,20 +4,27 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const Contact = (): JSX.Element => {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
 
- const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
     try {
@@ -107,7 +114,7 @@ const Contact = () => {
             </label>
             <textarea
               name="message"
-              rows="5"
+              rows={5}
               required
               value={formData.message}
               onChange={handleChange}
