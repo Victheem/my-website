@@ -5,7 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Automated Capsule Filling Line",
@@ -29,8 +36,8 @@ const projects = [
   },
 ];
 
-export const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+export const Projects = (): JSX.Element => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section className="py-20 bg-gray-50 relative">
@@ -50,8 +57,7 @@ export const Projects = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-center text-gray-600 mt-3 max-w-2xl mx-auto"
         >
-          Explore our latest works in pharmaceutical technology and real estate
-          development.
+          Explore our latest works in pharmaceutical technology and real estate development.
         </motion.p>
 
         {/* Static project grid */}
@@ -73,12 +79,8 @@ export const Projects = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mt-2 line-clamp-2">
-                  {project.description}
-                </p>
+                <h3 className="text-xl font-semibold text-gray-800">{project.title}</h3>
+                <p className="text-gray-600 mt-2 line-clamp-2">{project.description}</p>
                 <Button
                   variant="outline"
                   className="mt-4 text-[#800000] border-[#800000] hover:bg-[#800000] hover:text-white transition-all"
@@ -121,9 +123,7 @@ export const Projects = () => {
                 height={300}
                 className="rounded-xl object-cover mb-5"
               />
-              <h3 className="text-2xl font-bold text-[#800000] mb-3">
-                {selectedProject.title}
-              </h3>
+              <h3 className="text-2xl font-bold text-[#800000] mb-3">{selectedProject.title}</h3>
               <p className="text-gray-700">{selectedProject.description}</p>
             </motion.div>
           </motion.div>
