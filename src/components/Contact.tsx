@@ -10,7 +10,7 @@ interface FormData {
   message: string;
 }
 
-const Contact = (): JSX.Element => {
+const Contact = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -19,12 +19,12 @@ const Contact = (): JSX.Element => {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void => {
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -68,7 +68,6 @@ const Contact = (): JSX.Element => {
           out the form below — we’ll get back to you shortly.
         </motion.p>
 
-        {/* Form */}
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -130,18 +129,6 @@ const Contact = (): JSX.Element => {
             Send Message
           </Button>
         </motion.form>
-
-        {/* Decorative glow orbs */}
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ repeat: Infinity, duration: 6 }}
-          className="absolute top-10 left-10 w-32 h-32 bg-[#80000022] rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, -20, 0] }}
-          transition={{ repeat: Infinity, duration: 8 }}
-          className="absolute bottom-10 right-10 w-40 h-40 bg-[#80000022] rounded-full blur-3xl"
-        />
       </div>
     </section>
   );
