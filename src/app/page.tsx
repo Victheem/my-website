@@ -6,7 +6,7 @@ import Services from "@/components/sections/Services";
 import { Projects } from "@/components/Projects";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { AboutCompany } from "@/components/AboutCompany";
-import Contact from "@/components/Contact";
+//import Contact from "@/components/Contact";
 
 export default function HomePage() {
   return (
@@ -24,7 +24,7 @@ export default function HomePage() {
       <Services />
       <WhyChooseUs />
       <Projects />
-      <Contact />
+      {/* <Contact /> */}
 
       {/* Footer will naturally follow */}
     </main>
