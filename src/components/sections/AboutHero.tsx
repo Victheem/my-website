@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Tooltip } from "@/components/ui/tooltip"; // shadcn tooltip
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip"; // shadcn tooltip
 import { Info } from "lucide-react";
 
 export default function AboutHero() {
@@ -10,7 +14,7 @@ export default function AboutHero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/jawosh-building.jpg" // replace with your private image
+        src="/jawosh-building.jpg"
         alt="About Hero"
         fill
         className="object-cover"
@@ -63,23 +67,36 @@ export default function AboutHero() {
 
         {/* Tooltips Example */}
         <div className="flex justify-center gap-4">
-          <Tooltip content="Expert Pharma Equipment Manufacturing">
-            <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
-              Pharma Industry
-              <Info className="inline ml-2 w-4 h-4" />
-            </button>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
+                Pharma Industry
+                <Info className="inline ml-2 w-4 h-4" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              Expert Pharma Equipment Manufacturing
+            </TooltipContent>
           </Tooltip>
-          <Tooltip content="Innovative Real Estate Solutions">
-            <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
-              Real Estate
-              <Info className="inline ml-2 w-4 h-4" />
-            </button>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
+                Real Estate
+                <Info className="inline ml-2 w-4 h-4" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>Innovative Real Estate Solutions</TooltipContent>
           </Tooltip>
-          <Tooltip content="Professional Property Management">
-            <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
-              Property Mgmt
-              <Info className="inline ml-2 w-4 h-4" />
-            </button>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button className="bg-[#800000] hover:shadow-[0_0_20px_#800000] text-white px-6 py-3 rounded-full transition-all duration-300">
+                Property Mgmt
+                <Info className="inline ml-2 w-4 h-4" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>Professional Property Management</TooltipContent>
           </Tooltip>
         </div>
       </motion.div>
