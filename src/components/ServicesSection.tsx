@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Reveal from "@/components/Reveal"; // default import
 import { Factory, Building2, Home } from "lucide-react";
 
 const services = [
@@ -37,38 +36,55 @@ const ServicesSection = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-        <Reveal delay={0}>
-          <h2 className="text-4xl font-bold mb-4 text-maroon-700">Our Services</h2>
-        </Reveal>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold mb-4 text-maroon-700"
+        >
+          Our Services
+        </motion.h2>
 
-        <Reveal delay={0.2}>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-            At Jawosh Tech Properties Ltd, we’re committed to delivering top-tier
-            solutions across industries — driven by innovation, quality, and excellence.
-          </p>
-        </Reveal>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-600 max-w-2xl mx-auto mb-12"
+        >
+          At Jawosh Tech Properties Ltd, we’re committed to delivering top-tier
+          solutions across industries — driven by innovation, quality, and excellence.
+        </motion.p>
 
         {/* Service Cards */}
         <div className="grid gap-10 md:grid-cols-3">
           {services.map(({ title, description, icon: Icon }, index) => (
-            <Reveal key={index} delay={0.3 + index * 0.2}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative bg-white rounded-2xl shadow-lg hover:shadow-[0_0_20px_#80000077] p-8 border border-maroon-100 transition-all duration-300"
-              >
-                <div className="flex flex-col items-center text-center">
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 1 }}
-                    className="w-16 h-16 flex items-center justify-center rounded-full border-4 border-maroon-600 shadow-[0_0_15px_#80000066] mb-4"
-                  >
-                    <Icon size={36} className="text-maroon-700" />
-                  </motion.div>
-                  <h3 className="text-xl font-semibold mb-2 text-maroon-700">{title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-                </div>
-              </motion.div>
-            </Reveal>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.2 * index,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="relative bg-white rounded-2xl shadow-lg hover:shadow-[0_0_20px_#80000077] p-8 border border-maroon-100 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                  className="w-16 h-16 flex items-center justify-center rounded-full border-4 border-maroon-600 shadow-[0_0_15px_#80000066] mb-4"
+                >
+                  <Icon size={36} className="text-maroon-700" />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-2 text-maroon-700">{title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
