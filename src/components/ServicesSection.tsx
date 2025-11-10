@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Reveal from "@/components/reveal"; // default import
+import Reveal from "@/components/Reveal"; // default import
 import { Factory, Building2, Home } from "lucide-react";
 
 const services = [
