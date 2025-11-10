@@ -26,7 +26,12 @@ const stats = [
   },
 ];
 
-function Counter({ value }) {
+// ✅ Type for Counter props
+interface CounterProps {
+  value: number;
+}
+
+function Counter({ value }: CounterProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
