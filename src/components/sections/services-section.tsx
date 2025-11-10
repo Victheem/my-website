@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal } from "@/components/reveal";
+
 import { Wrench, Cpu, ShieldCheck } from "lucide-react";
 
 const services = [
