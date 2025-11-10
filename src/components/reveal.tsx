@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, easeOut } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 interface RevealProps {
@@ -10,13 +10,13 @@ interface RevealProps {
   className?: string;
 }
 
-export const Reveal = ({
+const Reveal: React.FC<RevealProps> = ({
   children,
   delay = 0.2,
   direction = "up",
   className,
-}: RevealProps) => {
-  const ref = useRef(null);
+}) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const controls = useAnimation();
 
@@ -36,7 +36,7 @@ export const Reveal = ({
       y: 0,
       x: 0,
       scale: 1,
-      transition: { duration: 0.8, delay, ease: "easeOut" },
+      transition: { duration: 0.8, delay, ease: easeOut },
     },
   };
 
@@ -52,3 +52,5 @@ export const Reveal = ({
     </motion.div>
   );
 };
+
+export default Reveal;
