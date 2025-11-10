@@ -54,7 +54,7 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectsShowcase: React.FC = (): JSX.Element => {
+const ComponentName: React.FC = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       <motion.div

@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const OurTeam: React.FC = (): JSX.Element => {
+const OurTeam: React.FC = () => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
@@ -88,9 +88,7 @@ const OurTeam: React.FC = (): JSX.Element => {
               />
             </div>
             <div className="p-6 text-center">
-              <h3 className="text-xl font-semibold text-gray-800">
-                {member.name}
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
               <p className="text-gray-500">{member.role}</p>
             </div>
           </motion.div>
@@ -111,9 +109,7 @@ const OurTeam: React.FC = (): JSX.Element => {
             >
               <X size={26} />
             </button>
-            <h3 className="text-2xl font-semibold mb-2">
-              {selectedMember.name}
-            </h3>
+            <h3 className="text-2xl font-semibold mb-2">{selectedMember.name}</h3>
             <p className="text-sm text-gray-500 mb-4">{selectedMember.role}</p>
             <p className="text-gray-700">{selectedMember.bio}</p>
             <div className="mt-6 text-center">
