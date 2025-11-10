@@ -36,7 +36,8 @@ const projects: Project[] = [
   },
 ];
 
-export const Projects = (): JSX.Element => {
+export const Projects = () => {
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
