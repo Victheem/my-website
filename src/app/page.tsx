@@ -1,7 +1,6 @@
 import PartnerCarousel from "@/components/PartnerCarousel";
 import AboutSection from "@/components/AboutSection";
 import { Hero } from "@/components/hero";
-//import ServicesSection from "@/components/ServicesSection";
 import Services from "@/components/sections/Services";
 import { Projects } from "@/components/Projects";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -25,7 +24,7 @@ export default function HomePage() {
 
       {/* Services */}
       <Services />
-      {/* <ServicesSection /> */}
+      
 
       {/* Why Choose Us */}
       <WhyChooseUs />
