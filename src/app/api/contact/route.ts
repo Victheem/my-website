@@ -17,14 +17,14 @@ export async function POST(req: Request) {
     // 1️⃣ Send email to admin
     await transporter.sendMail({
       from: `"Jawosh Tech Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.RECEIVER_EMAIL, // your email
+      to: process.env.RECEIVER_EMAIL, // Admin email
       subject: `New Contact Form Message from ${name}`,
       text: `
-        Name: ${name}
-        Email: ${email}
+Name: ${name}
+Email: ${email}
 
-        Message:
-        ${message}
+Message:
+${message}
       `,
     });
 
@@ -34,15 +34,15 @@ export async function POST(req: Request) {
       to: email,
       subject: "Thank you for contacting Jawosh Tech!",
       html: `
-        <div style="font-family:sans-serif; color:#333;">
-          <h2 style="color:#800000;">Hi ${name},</h2>
-          <p>Thank you for reaching out to <strong>Jawosh Tech</strong>. We've received your message and will get back to you shortly.</p>
-          <p>Here's what you sent:</p>
-          <blockquote style="border-left:4px solid #800000; padding-left:10px; color:#555;">
-            ${message}
-          </blockquote>
-          <p>Best regards,<br/>The Jawosh Tech Team</p>
-        </div>
+<div style="font-family:sans-serif; color:#333;">
+  <h2 style="color:#800000;">Hi ${name},</h2>
+  <p>Thank you for reaching out to <strong>Jawosh Tech</strong>. We've received your message and will get back to you shortly.</p>
+  <p>Here's what you sent:</p>
+  <blockquote style="border-left:4px solid #800000; padding-left:10px; color:#555;">
+    ${message}
+  </blockquote>
+  <p>Best regards,<br/>The Jawosh Tech Team</p>
+</div>
       `,
     });
 

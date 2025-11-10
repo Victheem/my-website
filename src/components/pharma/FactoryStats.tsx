@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState, ReactElement } from "react";
 import { FaUsers, FaHandshake, FaIndustry, FaUserGraduate } from "react-icons/fa";
 
-// ✅ Define type for stats
 interface Stat {
   icon: ReactElement;
   title: string;
@@ -45,24 +44,23 @@ const FactoryStats: React.FC = () => {
   const [counts, setCounts] = useState<number[]>(statsData.map(() => 0));
 
   useEffect(() => {
-    if (isInView) {
-      const timers = statsData.map((stat, i) => {
-        let start = 0;
-        const step = stat.target / 60; // animate over 60 frames
-        const interval = setInterval(() => {
-          start += step;
-          setCounts((prev) => {
-            const updated = [...prev];
-            updated[i] = Math.min(Math.floor(start), stat.target);
-            return updated;
-          });
-          if (start >= stat.target) clearInterval(interval);
-        }, 30);
-        return interval;
-      });
+    if (!isInView) return;
 
-      return () => timers.forEach(clearInterval);
-    }
+    const startTime = performance.now();
+
+    const duration = 2000; // total animation duration in ms
+    const animate = (time: number) => {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      setCounts(statsData.map((stat) => Math.floor(stat.target * progress)));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
   }, [isInView]);
 
   return (
@@ -106,11 +104,10 @@ const FactoryStats: React.FC = () => {
 
       {/* Subtle rotating light glow */}
       <motion.div
-  animate={{ rotate: 360 }}
-  transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-  className="absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-maroon-400/50 via-maroon-500/40 to-maroon-600/30 blur-3xl -z-10"
-/>
-
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+        className="absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-maroon-400/50 via-maroon-500/40 to-maroon-600/30 blur-3xl -z-10"
+      />
     </section>
   );
 };

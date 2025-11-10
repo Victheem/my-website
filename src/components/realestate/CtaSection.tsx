@@ -35,12 +35,12 @@ export default function CtaSection() {
         </div>
       </motion.div>
 
-      {/* Subtle glowing maroon lines */}
+      {/* Subtle glowing maroon line */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.3, 1, 0.3] }}
         transition={{ duration: 3, repeat: Infinity }}
-        className="absolute bottom-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-red-700 to-primary"
+        className="absolute bottom-0 left-0 right-0 h-[4px] bg-gradient-to-r from-maroon-500 via-red-700 to-maroon-500"
       />
     </section>
   );

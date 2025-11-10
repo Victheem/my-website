@@ -8,13 +8,25 @@ import CtaSection from "@/components/realestate/CtaSection";
 export default function RealEstatePage() {
   return (
     <main>
+      {/* Hero Section */}
       <HeroRealEstate />
+
+      {/* About Real Estate */}
       <AboutRealEstate />
+
+      {/* Projects Showcase */}
       <ProjectsShowcase />
+
+      {/* Our Team */}
       <OurTeam />
+
+      {/* Projects / Achievements */}
       <ProjectsAchievements />
+
+      {/* Call to Action */}
       <CtaSection />
-      {/* Next: MissionVisionRealEstate, EstatesShowcase, CoreValues, OurTeam, CTA */}
+
+      {/* Next sections planned: MissionVisionRealEstate, EstatesShowcase, CoreValues, OurTeam, CTA */}
     </main>
   );
 }

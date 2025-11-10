@@ -2,7 +2,6 @@
 
 import AboutHero from "@/components/sections/AboutHero";
 import CompanyOverview from "@/components/sections/CompanyOverview";
-// Later sections:
 import PartnersCarousel from "@/components/sections/PartnersCarousel";
 import HistoryTimeline from "@/components/sections/HistoryTimeline";
 import ServicesCards from "@/components/sections/ServicesCards";
@@ -14,15 +13,14 @@ import CTASection from "@/components/sections/CTASection";
 export default function AboutPage() {
   return (
     <main className="overflow-x-hidden">
-      {/* Hero */}
+      {/* Hero Section */}
       <AboutHero />
 
       {/* Company Overview */}
       <CompanyOverview />
 
-      {/* Partner Carousel */}
+      {/* Partners Carousel */}
       <PartnersCarousel />
-      {/* <PartnersCarousel /> */}
 
       {/* Our History */}
       <HistoryTimeline />
@@ -39,7 +37,7 @@ export default function AboutPage() {
       {/* Projects / Achievements */}
       <ProjectsAchievements />
 
-      {/* CTA */}
+      {/* Call to Action */}
       <CTASection />
     </main>
   );

@@ -15,9 +15,30 @@ import {
 } from "react-icons/fa";
 
 const PartnershipCTA = () => {
+  const partners = [
+    {
+      icon: <FaBuilding className="text-4xl mx-auto text-maroon-400 mb-3" />,
+      title: "Corporate Partners",
+      description:
+        "Collaborate on large-scale manufacturing and export projects.",
+    },
+    {
+      icon: <FaHandshake className="text-4xl mx-auto text-maroon-400 mb-3" />,
+      title: "Distributors",
+      description:
+        "Join our network to distribute top-grade pharmaceutical equipment.",
+    },
+    {
+      icon: (
+        <FaEnvelopeOpenText className="text-4xl mx-auto text-maroon-400 mb-3" />
+      ),
+      title: "Investors",
+      description: "Partner with us to expand into West and Central Africa.",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-black via-maroon-950 to-maroon-900 text-white py-28 px-6">
-      {/* Floating glow background */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -30,7 +51,6 @@ const PartnershipCTA = () => {
       />
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        {/* Title Section */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,60 +67,32 @@ const PartnershipCTA = () => {
           transition={{ delay: 0.3 }}
           className="max-w-2xl mx-auto text-gray-300 mb-10"
         >
-          Investors, government agencies, and global health innovators
-          join hands with
-          <strong> Jawosh Tech Properties Ltd </strong> in revolutionizing
-          Africa’s pharmaceutical and manufacturing industries.
+          Investors, government agencies, and global health innovators join
+          hands with <strong>Jawosh Tech Properties Ltd</strong> in
+          revolutionizing Africa’s pharmaceutical and manufacturing industries.
         </motion.p>
 
-        {/* Partnership Highlights */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-6 mb-12"
-        >
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-white/10 hover:bg-maroon-600/30 backdrop-blur-sm border border-maroon-700 rounded-2xl px-8 py-6 cursor-pointer transition-all hover:shadow-[0_0_25px_rgba(128,0,0,0.5)]">
-                  <FaBuilding className="text-4xl mx-auto text-maroon-400 mb-3" />
-                  <p className="font-semibold">Corporate Partners</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                Collaborate on large-scale manufacturing and export projects.
-              </TooltipContent>
-            </Tooltip>
+        <TooltipProvider>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex flex-wrap justify-center gap-6 mb-12"
+          >
+            {partners.map((item, i) => (
+              <Tooltip key={i}>
+                <TooltipTrigger asChild>
+                  <div className="bg-white/10 hover:bg-maroon-600/30 backdrop-blur-sm border border-maroon-700 rounded-2xl px-8 py-6 cursor-pointer transition-all hover:shadow-[0_0_25px_rgba(128,0,0,0.5)]">
+                    {item.icon}
+                    <p className="font-semibold">{item.title}</p>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>{item.description}</TooltipContent>
+              </Tooltip>
+            ))}
+          </motion.div>
+        </TooltipProvider>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-white/10 hover:bg-maroon-600/30 backdrop-blur-sm border border-maroon-700 rounded-2xl px-8 py-6 cursor-pointer transition-all hover:shadow-[0_0_25px_rgba(128,0,0,0.5)]">
-                  <FaHandshake className="text-4xl mx-auto text-maroon-400 mb-3" />
-                  <p className="font-semibold">Distributors</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                Join our network to distribute top-grade pharmaceutical
-                equipment.
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-white/10 hover:bg-maroon-600/30 backdrop-blur-sm border border-maroon-700 rounded-2xl px-8 py-6 cursor-pointer transition-all hover:shadow-[0_0_25px_rgba(128,0,0,0.5)]">
-                  <FaEnvelopeOpenText className="text-4xl mx-auto text-maroon-400 mb-3" />
-                  <p className="font-semibold">Investors</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                Partner with us to expand into West and Central Africa.
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </motion.div>
-
-        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +111,6 @@ const PartnershipCTA = () => {
           </motion.button>
         </motion.div>
 
-        {/* Floating maroon border animation */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 18, ease: "linear" }}

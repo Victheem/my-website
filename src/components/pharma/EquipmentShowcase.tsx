@@ -89,12 +89,10 @@ const EquipmentShowcase = () => {
                   whileHover={{ scale: 1.05 }}
                   className="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-transparent hover:border-maroon-500 transition-all duration-300"
                 >
-                  <motion.img
+                  <img
                     src={equip.image}
                     alt={equip.title}
                     className="w-full h-64 object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
                   />
                   <div className="p-6 text-left">
                     <h3 className="text-xl font-semibold text-maroon-700 mb-2">
@@ -125,10 +123,7 @@ const EquipmentShowcase = () => {
                     alt={equip.title}
                     className="w-full h-64 object-cover rounded-xl"
                   />
-                  <p className="text-gray-700 leading-relaxed">
-                    {equip.description}
-                  </p>
-
+                  <p className="text-gray-700 leading-relaxed">{equip.description}</p>
                   <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-600">
                     {equip.specs.map((s, idx) => (
                       <li key={idx}>• {s}</li>

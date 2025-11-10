@@ -55,7 +55,8 @@ const sources = [
 
 const RawMaterialsFlow = () => {
   return (
-    <section className="relative bg-gradient-to-t from-maroon-950 via-maroon-900 to-maroon-800 py-24 overflow-hidden text-black">
+    <section className="relative bg-gradient-to-t from-maroon-950 via-maroon-900 to-maroon-800 py-24 overflow-hidden text-white">
+      {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -65,11 +66,10 @@ const RawMaterialsFlow = () => {
         <h2 className="text-4xl font-bold mb-6">
           Sustainable Raw Material Sourcing
         </h2>
-        <p className="max-w-2xl mx-auto text-black mb-12">
+        <p className="max-w-2xl mx-auto text-gray-200 mb-12">
           Every component in our pharmaceutical equipment is carefully sourced
           from sustainable, high-quality suppliers across Africa and Asia —
-          ensuring efficiency, reliability, and compliance with global
-          standards.
+          ensuring efficiency, reliability, and compliance with global standards.
         </p>
 
         {/* Flow Line Container */}
@@ -95,7 +95,7 @@ const RawMaterialsFlow = () => {
                       {item.icon}
                     </motion.div>
                     <h3 className="mt-4 font-semibold text-lg">{item.title}</h3>
-                    <p className="text-sm text-black">{item.location}</p>
+                    <p className="text-sm text-gray-300">{item.location}</p>
 
                     {/* Connector Lines (for desktop) */}
                     {i < sources.length - 1 && (
@@ -108,6 +108,7 @@ const RawMaterialsFlow = () => {
                     )}
                   </motion.div>
                 </TooltipTrigger>
+
                 <TooltipContent className="text-sm bg-maroon-900 text-white border border-maroon-600">
                   <p className="font-medium">{item.title}</p>
                   <p>{item.desc}</p>
@@ -118,7 +119,7 @@ const RawMaterialsFlow = () => {
         </div>
       </motion.div>
 
-      {/* Ambient glow */}
+      {/* Ambient Glow Animation */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 60, ease: "linear" }}

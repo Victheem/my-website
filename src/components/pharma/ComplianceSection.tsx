@@ -51,9 +51,7 @@ const ComplianceSection = () => {
         transition={{ duration: 0.8 }}
         className="max-w-6xl mx-auto px-6 text-center"
       >
-        <h2 className="text-4xl font-bold mb-6">
-          Global Standards & Compliance
-        </h2>
+        <h2 className="text-4xl font-bold mb-6">Global Standards & Compliance</h2>
         <p className="max-w-2xl mx-auto text-black mb-12">
           Jawosh Pharma operates under globally recognized standards ensuring
           top-quality, safe, and efficient manufacturing processes for
@@ -80,9 +78,7 @@ const ComplianceSection = () => {
 
         {/* Timeline */}
         <div className="relative mt-20">
-          <h3 className="text-2xl font-semibold mb-6 text-white">
-            Our Compliance Journey
-          </h3>
+          <h3 className="text-2xl font-semibold mb-6 text-white">Our Compliance Journey</h3>
           <div className="relative flex flex-col md:flex-row justify-center items-center gap-8">
             {[
               "2018: ISO Setup",

@@ -8,6 +8,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import Image from "next/image";
 
 interface Location {
   country: string;
@@ -17,16 +18,41 @@ interface Location {
 }
 
 const locations: Location[] = [
-  { country: "Nigeria", top: "60%", left: "45%", info: "Headquarters – Ilorin, Lagos, Abuja" },
-  { country: "Ghana", top: "55%", left: "35%", info: "Distribution and equipment assembly hub" },
-  { country: "Benin", top: "58%", left: "40%", info: "Regional technical and service office" },
-  { country: "Togo", top: "57%", left: "38%", info: "Training and maintenance partner base" },
-  { country: "Côte d’Ivoire", top: "52%", left: "30%", info: "West African expansion frontier" },
+  {
+    country: "Nigeria",
+    top: "60%",
+    left: "45%",
+    info: "Headquarters – Ilorin, Lagos, Abuja",
+  },
+  {
+    country: "Ghana",
+    top: "55%",
+    left: "35%",
+    info: "Distribution and equipment assembly hub",
+  },
+  {
+    country: "Benin",
+    top: "58%",
+    left: "40%",
+    info: "Regional technical and service office",
+  },
+  {
+    country: "Togo",
+    top: "57%",
+    left: "38%",
+    info: "Training and maintenance partner base",
+  },
+  {
+    country: "Côte d’Ivoire",
+    top: "52%",
+    left: "30%",
+    info: "West African expansion frontier",
+  },
 ];
 
 const WestAfricaMap: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-blue">
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 text-black">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,18 +62,21 @@ const WestAfricaMap: React.FC = () => {
         <h2 className="text-4xl font-bold mb-6 text-maroon-800">
           Expansion Across West Africa
         </h2>
-        <p className="max-w-2xl mx-auto text-black mb-12">
+
+        <p className="max-w-2xl mx-auto text-gray-700 mb-12">
           Our footprint is spreading across West Africa, connecting industries
           through advanced pharmaceutical technology, innovation, and
           sustainable solutions.
         </p>
 
-        <div className="relative w-full max-w-4xl mx-auto aspect-[3/2] bg-blue rounded-3xl shadow-lg border border-maroon-200 overflow-hidden">
-          {/* Optional clean map image */}
-          <img
+        <div className="relative w-full max-w-4xl mx-auto aspect-[3/2] bg-blue-100 rounded-3xl shadow-lg border border-maroon-200 overflow-hidden">
+          {/* Optimized map image */}
+          <Image
             src="/africa.jpeg"
             alt="West Africa Map"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
 
           <TooltipProvider>
@@ -59,23 +88,34 @@ const WestAfricaMap: React.FC = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ delay: i * 0.2, type: "spring" }}
                     className="absolute"
-                    style={{ top: loc.top, left: loc.left, transform: "translate(-50%, -50%)" }}
+                    style={{
+                      top: loc.top,
+                      left: loc.left,
+                      transform: "translate(-50%, -50%)",
+                    }}
                   >
                     <motion.div
-                      whileHover={{ scale: 1.3 }}
+                      whileHover={{ scale: 1.2 }}
                       className="relative flex flex-col items-center"
                     >
-                      {/* Bright marker */}
-                      <FaMapMarkerAlt className="text-red-700 text-4xl drop-shadow-[0_0_20px_rgba(255,0,0,0.9)]" />
+                      <FaMapMarkerAlt className="text-red-700 text-3xl drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]" />
                       <motion.span
-                        animate={{ opacity: [0.5, 1, 0.5], scale: [0.8, 1.3, 0.8] }}
-                        transition={{ repeat: Infinity, duration: 2, delay: i * 0.3 }}
-                        className="absolute w-10 h-10 rounded-full bg-red-600/50 blur-md"
+                        animate={{
+                          opacity: [0.5, 1, 0.5],
+                          scale: [0.8, 1.3, 0.8],
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 2,
+                          delay: i * 0.3,
+                        }}
+                        className="absolute w-8 h-8 rounded-full bg-red-600/50 blur-md"
                       />
                     </motion.div>
                   </motion.div>
                 </TooltipTrigger>
-                <TooltipContent className="bg-maroon-800 text-white">
+
+                <TooltipContent className="bg-maroon-800 text-white border border-maroon-600">
                   <p className="text-sm font-medium">{loc.country}</p>
                   <p className="text-xs text-gray-200">{loc.info}</p>
                 </TooltipContent>
@@ -83,8 +123,11 @@ const WestAfricaMap: React.FC = () => {
             ))}
           </TooltipProvider>
 
-          {/* Animated lines connecting markers */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+          {/* Animated connector lines */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             {locations.map((loc, i) => {
               if (i === 0) return null;
               const prev = locations[i - 1];
@@ -107,7 +150,7 @@ const WestAfricaMap: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Subtle glow circle */}
+      {/* Ambient glow */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 40, ease: "linear" }}

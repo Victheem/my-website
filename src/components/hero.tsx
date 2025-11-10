@@ -69,7 +69,7 @@ export const Hero = () => {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border-white text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2 px-8 py-3"
+            className="rounded-full border-white text-black hover:bg-white/10 transition-all duration-300 flex items-center gap-2 px-8 py-3"
           >
             <CirclePlay className="h-5 w-5" /> Watch Demo
           </Button>

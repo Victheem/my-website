@@ -70,7 +70,7 @@ const AboutRealEstate = () => {
             viewport={{ once: true }}
             className="pt-4"
           >
-            <button className="px-8 py-4 bg-maroon-700 text-black font-semibold rounded-full shadow-lg hover:shadow-[0_0_20px_#800000] hover:bg-maroon-800 transition-all duration-300">
+            <button className="px-8 py-4 bg-maroon-700 text-white font-semibold rounded-full shadow-lg hover:shadow-[0_0_20px_#800000] hover:bg-maroon-800 transition-all duration-300">
               Learn More
             </button>
           </motion.div>
