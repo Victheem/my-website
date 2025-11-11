@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Tooltip } from "@/components/ui/tooltip"; // shadcn tooltip
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip"; // shadcn tooltip
 import { Award, Eye, Shield } from "lucide-react";
 
 const overview = [
@@ -49,9 +54,18 @@ export default function CompanyOverview() {
               className="bg-white border border-[#8B000030] p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 relative"
             >
               {/* Tooltip icon */}
-              <Tooltip content={tooltip}>
-                <InfoIcon className="absolute top-4 right-4 w-5 h-5 text-[#800000] cursor-pointer" />
-              </Tooltip>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span>
+                      <InfoIcon className="absolute top-4 right-4 w-5 h-5 text-[#800000] cursor-pointer" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{tooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
 
               <div className="flex justify-center mb-4">
                 <Icon className="w-14 h-14 text-[#800000]" />
