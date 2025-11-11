@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 
-const CTASection: React.FC = (): JSX.Element => {
+const CTASection: React.FC = () => {
+
   return (
     <section className="relative py-20 bg-[#800000] text-white overflow-hidden">
       <motion.div
